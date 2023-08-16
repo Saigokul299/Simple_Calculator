@@ -8,18 +8,18 @@ function App() {
   const m = (event) => setMessage(Number(event.target.value));
   const m2 = (event) => setMes2(Number(event.target.value));
   let [sig, setSig] = useState("+");
-  let [ans, setans] = useState("");
+  let [ans, setAns] = useState("");
   let [count, setCount] = useState(0);
   const s = () => {
     setCount(count + 1);
     if (sig == "+") {
-      setans(message + mes2);
+      setAns(message + mes2);
     } else if (sig == "-") {
-      setans(message - mes2);
+      setAns(message - mes2);
     } else if (sig == "*") {
-      setans(message * mes2);
+      setAns(message * mes2);
     } else {
-      setans(message / mes2);
+      setAns(message / mes2);
     }
   };
   const ap = ["+", "-", "*", "/"];
