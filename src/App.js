@@ -3,23 +3,23 @@ import "./App.css";
 import { Box, Button } from "@mui/material";
 import { useState } from "react";
 function App() {
-  const [message, setMessage] = useState(null);
-  const [mes2, setMes2] = useState(null);
-  const m = (event) => setMessage(Number(event.target.value));
-  const m2 = (event) => setMes2(Number(event.target.value));
-  let [sig, setSig] = useState("+");
-  let [ans, setAns] = useState("");
+  const [number1, setNumber2] = useState(null);
+  const [number2, setNuumber1] = useState(null);
+  const m = (event) => setNumber2(Number(event.target.value));
+  const m2 = (event) => setNuumber1(Number(event.target.value));
+  let [sign, setSign] = useState("+");
+  let [answer, setAnswer] = useState("");
   let [count, setCount] = useState(0);
   const s = () => {
     setCount(count + 1);
-    if (sig == "+") {
-      setAns(message + mes2);
-    } else if (sig == "-") {
-      setAns(message - mes2);
-    } else if (sig == "*") {
-      setAns(message * mes2);
+    if (sign == "+") {
+      setAnswer(number1 + number2);
+    } else if (sign == "-") {
+      setAnswer(number1 - number2);
+    } else if (sign == "*") {
+      setAnswer(number1 * number2);
     } else {
-      setAns(message / mes2);
+      setAnswer(number1 / number2);
     }
   };
   const ap = ["+", "-", "*", "/"];
@@ -31,35 +31,40 @@ function App() {
       <div className="sam">
         <Box sx={{ marginRight: 5 }}>
           <input
-            name="message"
-            value={message}
+            name="number1"
+            value={number1}
             type="number"
             id="sas"
             onChange={m}
           ></input>
         </Box>
         <Button sx={{ fontSize: 30 }} disabled>
-          {sig}
+          {sign}
         </Button>
         <Box sx={{ marginLeft: 5 }}>
-          <input name="mes2" type="number" value={mes2} onChange={m2}></input>
+          <input
+            name="number2"
+            type="number"
+            value={number2}
+            onChange={m2}
+          ></input>
         </Box>
         <h3 style={{ marginLeft: "30px" }}>=</h3>
         <Box sx={{ marginLeft: 5 }}>
-          <input value={ans} disabled></input>
+          <input value={answer} disabled></input>
         </Box>
       </div>
       <div className="but">
         {ap.map((i) => (
-          <Button onClick={() => setSig(i)}>{i}</Button>
+          <Button onClick={() => setSign(i)}>{i}</Button>
         ))}
       </div>
       <div className="qw">
         <Button
           onClick={() => {
-            setMessage("");
-            setMes2("");
-            setSig("+");
+            setNumber2("");
+            setNuumber1("");
+            setSign("+");
           }}
         >
           Reset
